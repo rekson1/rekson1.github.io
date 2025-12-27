@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: "Inter", sans-serif;
+  --deep-black: #050505;
+  --engineering-white: #F2F2F2;
+  --turbonite-base: #4E4F50;
+  --turbonite-highlight: #8C8279;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: auto; /* Let Lenis handle smooth scroll */
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--deep-black);
+  color: var(--engineering-white);
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Monospace for technical text */
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-feature-settings: "tnum" on, "lnum" on;
+}
+
+/* Tabular numbers for counters */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Selection styling */
+::selection {
+  background-color: rgba(140, 130, 121, 0.3);
+  color: var(--engineering-white);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--deep-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--turbonite-base);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--turbonite-highlight);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 1px solid var(--turbonite-highlight);
+  outline-offset: 2px;
+}
