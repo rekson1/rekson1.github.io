@@ -2,17 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import dynamic from "next/dynamic";
 import Lenis from "lenis";
-
-const AeroWireframe = dynamic(() => import("./AeroWireframe"), { 
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center opacity-20">
-      <div className="w-32 h-32 border border-turbonite-base/30 rounded-lg animate-pulse" />
-    </div>
-  )
-});
 
 const appleEase = [0.16, 1, 0.3, 1] as const;
 
@@ -101,7 +91,6 @@ export default function Hero() {
   const { scrollY } = useScroll();
   const titleY = useTransform(scrollY, [0, 800], [0, 200]);
   const titleOpacity = useTransform(scrollY, [0, 500], [1, 0]);
-  const wireframeY = useTransform(scrollY, [0, 800], [0, 100]);
 
   // Throttled mouse move for spotlight - 30fps is enough for smooth effect
   const handleMouseMove = useCallback((e: MouseEvent) => {
@@ -183,23 +172,15 @@ export default function Hero() {
 
       {/* Technical data points */}
       <TechnicalDataPoint position="top-left" label="" value="   // DALLAS, TX" />
-      <TechnicalDataPoint position="top-right" label="" value="" />
+      <TechnicalDataPoint position="top-right" label="Ver" value="v2025.12.25" />
       <TechnicalDataPoint position="bottom-left" label="" value="" />
-      <TechnicalDataPoint position="bottom-right" label="Ver" value="v2025.12.25" />
+      <TechnicalDataPoint position="bottom-right" label="Lockheed" value="//SR-71 Blackbird A" />
 
       {/* Crosshairs */}
       <Crosshair position="top-left" />
       <Crosshair position="top-right" />
       <Crosshair position="bottom-left" />
       <Crosshair position="bottom-right" />
-
-      {/* Aero Wireframe */}
-      <motion.div 
-        className="absolute inset-0 flex items-center justify-center z-0"
-        style={{ y: wireframeY }}
-      >
-        <AeroWireframe className="w-full h-full max-w-4xl" />
-      </motion.div>
 
       {/* Main Typography */}
       <motion.div

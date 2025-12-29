@@ -5,7 +5,8 @@ import {
   EngineeringHub, 
   Contact, 
   BackgroundCanvas, 
-  FloatingDock 
+  FloatingDock,
+  AeroWireframe
 } from "@/components";
 
 export default function Home() {
@@ -13,6 +14,11 @@ export default function Home() {
     <>
       {/* Global atmospheric background - fixed */}
       <BackgroundCanvas />
+
+      {/* SR-71 Blackbird 3D experience - fixed, scroll-reactive */}
+      <div className="fixed inset-0 z-[1] pointer-events-none">
+        <AeroWireframe className="w-full h-full" />
+      </div>
 
       {/* Floating navigation dock */}
       <FloatingDock />

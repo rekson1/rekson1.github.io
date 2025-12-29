@@ -43,9 +43,9 @@ function DockItem({ icon, label, href, isActive }: DockItemProps) {
         transition-colors duration-200
         ${isActive ? "text-engineering-white" : "text-turbonite-base hover:text-engineering-white"}
       `}
-      whileHover={{ scale: 1.15, y: -2 }}
+      whileHover={{ scale: 1.5, y: -2 }}
       whileTap={{ scale: 0.95 }}
-      transition={{ duration: 0.15, ease: appleEase }}
+      transition={{ duration: 0.3, ease: appleEase }}
     >
       {icon}
       
@@ -154,11 +154,11 @@ export default function FloatingDock() {
       transition={{ delay: 1, duration: 0.6, ease: appleEase }}
     >
       <motion.nav
-        className="relative overflow-hidden backdrop-blur-sm backdrop-saturate-[2.5]"
+        className="relative overflow-hidden backdrop-blur-sm backdrop-saturate-[1.2]"
         animate={{
           width: isExpanded ? (isMobile ? 200 : 280) : 10,
           height: isExpanded ? (isMobile ? 48 : 64) : 10,
-          borderRadius: isExpanded ? 16 : 5,
+          borderRadius: isExpanded ? 40  : 5,
         }}
         transition={{ duration: 0.4, ease: appleEase }}
         style={{
